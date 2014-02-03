@@ -8,7 +8,7 @@ Extends objects. Works similar to jQuery.extend, but without the deep copy.
 
 _Syntax:_
 ```javascript
-$JS.extend(dest: object, ...obj: object): object
+$JS.extend(dest: Object, ...obj: Object): object
 ```
 
 _Example:_
@@ -20,11 +20,11 @@ var objResult = $JS.extend({}, obj1, obj2, obj3);
 
 **$JS.namespace**
 
-Create objects namespace, and, if passed in, also add values (objects or other types) to it.
+Create namespace objects, and, if passed in, also add values (objects or other types) to it.
 
 _Syntax:_
 ```javascript
-$JS.namespace(root?: object, path: string|string[], value?: any): any
+$JS.namespace(root?: Object, path: String|Array<String>, value?: Any): Any
 ```
 
 _Example:_
@@ -48,7 +48,7 @@ Defines modules, following the module patter approach. You can pass an object or
 
 _Syntax:_
 ```javascript
-$JS.module(root?: object, path: string, supermodule?: object, factory: object|function): object
+$JS.module(root?: Object, path: String, supermodule?: Object, factory: Object|Function): Object
 ```
 
 _Example:_
@@ -85,7 +85,7 @@ It needs polyfill, Object.create, in IE8
 
 _Syntax:_
 ```javascript
-$JS.object(root?: object, path: string, superobj?: object, factory: object|function): object
+$JS.object(root?: Object, path: String, superobj?: Object, factory: Object|Function): Object
 ```
 
 _Example:_
@@ -113,7 +113,7 @@ Defines types (and for those who can't understand it, classes, but once again, t
 
 _Syntax:_
 ```javascript
-$JS.class(root?: object, path: string, superclass?: object, members: object, statics?: object): function
+$JS.class(root?: Object, path: String, superclass?: Object, members: Object, statics?: Object): Function
 ```
 
 _Example:_
@@ -149,7 +149,7 @@ Yes, you read well, "interfaces". This might be useless but helps you to structu
 
 _Syntax:_
 ```javascript
-$JS.interface(root?: object, path: string, superint?: object|object[], interf: string[]): object
+$JS.interface(root?: Object, path: String, superint?: Object|Array<Object>, interf: Array<String>): Object
 ```
 
 _Example:_
@@ -178,7 +178,7 @@ Inspired by ExtJS 4 excelent class system.
 
 _Syntax:_
 ```javascript
-$JS.define(root?: object, path: string, config: object|function|string[]): object
+$JS.define(root?: Object, path: String, config: Object|Function|Array<String>): Object
 ```
 
 _reserved properties for "config" parameter:_
