@@ -111,8 +111,9 @@
      *
      * $JS.namespace((window.Root = {}), 'SubNamespace');
      *
-     * @param {object} [root=global]
-     * @param {string|string[]} path
+     * @param {object} [root=global] - root object
+     * @param {string|string[]} path - namespace or list of namespaces
+	 * @param {any} [value] - optional value to put in the namespace
      * @returns {object}
      * @throws {Error} [$JS.namespace] "path" is mandatory string or Object
      */
