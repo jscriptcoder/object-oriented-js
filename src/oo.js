@@ -567,12 +567,12 @@
      *
      * @param {object} [root=global] - root object
      * @param {string} path - path to class
-     * @param {object|string[]} config - configuration object
+     * @param {object|function|string[]} config - configuration object
      * @param {function|object} [config.$extends] - inherits from
      * @param {function|object|any[]} [config.$mixins] - borrows from
      * @param {object} [config.$statics] - statics members for classes
      * @param {boolean} [config.$module] - indicates module
-     * @param {function} [config.$defined] - it's called when the type is defined
+     * @param {function} [config.$ondefined] - it's called when the type is defined
      * @returns {function|object} constructor function or module
      * @throws {Error} [$JS.define] "path" is mandatory string
      * @public
@@ -597,7 +597,7 @@
             statics = config.$statics,
             isclass = (config.constructor && config.constructor !== __obj_proto_construct__) || config.$class,
             ismod = config.$module || config.$singleton,
-            defined = config.$defined,
+            ondefined = config.$ondefined,
             members, type;
 
         // there is no need to keep these reserved words
@@ -605,7 +605,7 @@
         delete config['$mixins']; delete config['$implements'];
         delete config['$statics']; delete config['$class'];
         delete config['$module']; delete config['$singleton'];
-        delete config['$defined']; delete config['$interface']
+        delete config['$ondefined']; delete config['$interface']
 
         members = config;
 
@@ -624,7 +624,7 @@
             type = $JS.object(root, path, superobj, members);
         }
 
-        if (typeof defined === 'function') defined(type);
+        if (typeof ondefined === 'function') ondefined(type);
 
         return type;
 
