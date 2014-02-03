@@ -4,7 +4,7 @@ This is just another library to define easily namespaces, modules, objects and/o
 
 ## API
 ======
-**+$JS.extend**:
+**$JS.extend**
 
 Syntax:
 ```javascript
@@ -17,9 +17,8 @@ $JS.extend(ObjDest, ObjOrigin);
 
 var objResult = $JS.extend({}, obj1, obj2, obj3);
 ```
----
 
-**+$JS.namespace**:
+**$JS.namespace**
 
 Syntax:
 ```javascript
@@ -27,6 +26,7 @@ $JS.namespace(root?: object, path: string, value?: any): any
 $JS.namespace(root?: object, path: string[], value?: any): void
 ```
 
+Example:
 ```javascript
 $JS.namespace('App.MyNamespace');
 
@@ -36,19 +36,18 @@ $JS.namespace([
 	'App.Types',
 	'App.Controllers'
 ]);
+
+App.MyNamespace.greatFunc = function () {};
+App.Controllers.WidgetCtrl = function () {};
 ```
----
 
-**+$JS.module**:
+**$JS.module**
 
----
 
-**+$JS.object**:
+**$JS.object**
 
----
 
-**+$JS.type or $JS.class** - $JS['class'] in IE8:
+**$JS.type or $JS.class - $JS['class'] in IE8**
 
----
 
-**+$JS.define**:
+**$JS.define**
