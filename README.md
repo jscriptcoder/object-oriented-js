@@ -8,14 +8,14 @@ Extends objects. Works similar to jQuery.extend, but without the deep copy.
 
 _Syntax:_
 ```javascript
-$JS.extend(dest: Object, ...obj: Object): object
+$JS.extend(dest: Object, ...obj: Object): Object
 ```
 
 _Example:_
 ```javascript
 $JS.extend(ObjDest, ObjOrigin);
 
-var objResult = $JS.extend({}, obj1, obj2, obj3);
+var objResult = $JS.extend({}, obj1, obj2, obj3); // combines all the objects
 ```
 
 **$JS.namespace**
@@ -66,11 +66,12 @@ $JS.module('App.Services', function () {
     };
 });
 
+// inheritance
 $JS.module('App.MoreUtils', App.Utils, {
     greatFunc: function () {...}
 });
 
-//or
+// or
 App.Utils.$extend('App.MoreUtils', {
     greatFunc: function () {...}
 });
@@ -97,6 +98,7 @@ $JS.object('App.Person', {
     sayName: function (name) { alert(this.name); }
 });
 
+// inheritance
 App.Person.$extend('App.Me', {
     init: function () {
         App.Me.$super.init.call(this, 'My name'); // App.Person.init.call(this, 'My name');
@@ -160,6 +162,7 @@ $JS.interface('App.SomeInterface', [
     'method3'
 ]);
 
+// inheritance
 $JS.interface('App.MoreInterface', App.SomeInterface, [
     'method4',
     'method5'
@@ -169,6 +172,8 @@ App.MoreInterface.$extend('App.LastInterface', [
     'method6',
     'method7'
 ]);
+
+console.log(App.LastInterface); // logs and object with all those empty methods
 ```
 
 **$JS.define**
@@ -183,19 +188,19 @@ $JS.define(root?: Object, path: String, config: Object|Function|Array<String>): 
 
 _reserved properties for "config" parameter:_
 ```
-config.**$extends** or config.**$prototype** -> inherits from
-config.**mixins** or config.**implements** -> borrows from
-config.**$interface** -> defines an interface
-config.**$statics** -> object with all the static methods of a class
-config.**constructor** or config.**$class** -> defines an class
-config.**$module** or config.**$singleton** -> defines a module
-config.**$ondefined** -> runs when the object has been defined taking the object as parameter
+config.$extends or config.$prototype -> inherits from
+config.$mixins or config.$implements -> borrows from
+config.$interface -> defines an interface
+config.$statics -> object with all the static methods of a class
+config.constructor or config.$class -> defines an class
+config.$module or config.$singleton -> defines a module
+config.$ondefined -> runs when the object has been defined taking the object as parameter
 ```
 
 _Defining modules:_
 ```javascript
 $JS.define('App.Utils', {
-    $module: true,
+    $module: true, // user this or '$singleton: true'
     func1: function () {...},
     func1: function () {...}
 });
@@ -235,7 +240,7 @@ $JS.define('App.Person', {
 
 $JS.define('App.Me', {
 
-    $prototype: App.Person,
+    $prototype: App.Person, // user this or $extends
 
     init: function () {
         App.Person.init.call(this, 'Fran');
@@ -254,6 +259,7 @@ $JS.define('App.MyClass', {
 
     __priv__: null,
 
+    // use this or '$class: true' if there isn't constructor
     constructor: function (param) { this.__priv__ = param; },
 
     method1: function () {...},
@@ -289,6 +295,8 @@ $JS.define('App.MyInterface', [
 $JS.define('App.MoreInterface', {
 
     $extends: App.MyInterface,
+
+    // use this if the config object is not an array already
     $interface: [
         'method4',
         'method5'
@@ -297,7 +305,7 @@ $JS.define('App.MoreInterface', {
 
 $JS.define('App.MySpecialClass', {
 
-    $implements: App.MoreInterface,
+    $implements: App.MoreInterface, // use this or '$mixins: [...]'
     $extends: App.MyClass,
 
     $ondefined: function (Type) {
