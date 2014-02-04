@@ -1,5 +1,5 @@
 # Object Oriented JavaScript
-This is just another library to define easily namespaces, modules, objects and/or types (or classes if you like, although I personally don't like calling them in such way, since Javascript does NOT have classes). This bunch of utilities come really handy and help you to organize your code in a better way.
+This is just another library to define easily namespaces, modules, objects and/or types (or classes if you prefer, although I personally don't like calling them in such way, since Javascript does NOT have classes). This bunch of utilities comes really handy and help you to organize your code in a better way.
 
 ## Global $JS API
 **$JS.extend**
@@ -21,7 +21,7 @@ var objResult = $JS.extend({}, obj1, obj2, obj3); // combines all the objects
 
 **$JS.namespace**
 
-> Create namespace objects, and, if passed in, also add values (objects or other types) to it.
+> Creates namespace objects, and, if passed in, also adds values (objects or other types) to it.
 
 _Syntax:_
 ```javascript
@@ -46,7 +46,7 @@ App.Controllers.WidgetCtrl = function () {..};
 
 **$JS.module**
 
-> Defines modules, following the module patter approach. You can pass an object or function factory
+> Defines modules, following the module patter approach. You can pass in an object or function factory
 
 _Syntax:_
 ```javascript
@@ -256,6 +256,7 @@ _Defining types:_
 ```javascript
 $JS.define('App.MyClass', {
 
+    // will attach these methods to the constructor function
     $statics: {
         static1: function () {...},
         static2: function () {...}
@@ -274,7 +275,7 @@ $JS.define('App.MyClass', {
 // inheritance
 $JS.define('App.MySubClass', {
 
-    $extends: App.MyClass,
+    $extends: App.MyClass, // use this one for inheritance
 
     __priv2__: null,
 
