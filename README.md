@@ -2,7 +2,7 @@
 This is just another library to define easily namespaces, modules, objects and/or types (or classes if you like, although I personally don't like calling them in such way, since Javascript does NOT have classes). This bunch of utilities come really handy and help you to organize your code in a better way.
 
 ## Global $JS API
-+ **$JS.extend**
+**$JS.extend**
 
 > Extends objects. Works similar to jQuery.extend, but without the deep copy.
 
@@ -19,7 +19,7 @@ var objResult = $JS.extend({}, obj1, obj2, obj3); // combines all the objects
 ```
 ---
 
-+ **$JS.namespace**
+**$JS.namespace**
 
 > Create namespace objects, and, if passed in, also add values (objects or other types) to it.
 
@@ -44,7 +44,7 @@ App.Controllers.WidgetCtrl = function () {..};
 ```
 ---
 
-+ **$JS.module**
+**$JS.module**
 
 > Defines modules, following the module patter approach. You can pass an object or function factory
 
@@ -82,7 +82,7 @@ console.log(App.MoreUtils.$super); // logs App.Utils object
 ```
 ---
 
-+ **$JS.object**
+**$JS.object**
 
 > This one is hard to understand, but it's actually the most used one. Defines objects using Object.create, therefore it could be used to define prototypes, which can be used to create types or simply objects/modules. It needs polyfill, Object.create, in IE8
 
@@ -112,7 +112,7 @@ me.sayName(); // alerts 'My name'
 ```
 ---
 
-+ **$JS.type or $JS.class - $JS['class'] in IE8**
+**$JS.type or $JS.class - $JS['class'] in IE8**
 
 > Defines types (and for those who can't understand it, classes, but once again, they're NOT classes)
 
@@ -149,7 +149,7 @@ App.MyClass.$extend('App.MySubClass', {...});
 ```
 ---
 
-+ **$JS.interface**
+**$JS.interface**
 
 > Yes, you read well, "interfaces". This might be useless but helps you to structure your code :-)
 
@@ -181,7 +181,7 @@ console.log(App.LastInterface); // logs and object with all those empty methods
 ```
 ---
 
-+ **$JS.define**
+**$JS.define**
 
 > Defines types, modules, objects and interfaces (basically it does the same as the all the previous ones). Inspired by ExtJS 4 excelent class system.
 
