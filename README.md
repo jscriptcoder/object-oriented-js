@@ -114,7 +114,7 @@ me.sayName(); // alerts 'My name'
 
 **$JS.type or $JS.class**
 
-> Defines types (and for those who can't understand it, classes, but once again, they're NOT classes). In IE8 you can't use **class** as a property with dot notation, you must use the quote notation: $JS['class']
+> Defines types (and for those who can't understand it, classes, but once again, they're NOT classes). In IE8 you can't use _class_ as a property with dot notation, you must use the quote notation: **$JS['class']**
 
 _Syntax:_
 ```javascript
