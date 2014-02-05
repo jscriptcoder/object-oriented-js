@@ -16,24 +16,24 @@
 
     <!-- runs Jasmine tester -->
     <script type="text/javascript">
-      (function() {
+        (function() {
 
-          var jasmineEnv = jasmine.getEnv(),
-                  htmlReporter = new jasmine.HtmlReporter(),
-                  currentWindowOnload = window.onload,
-                  specFilter = function(spec) { return htmlReporter.specFilter(spec) },
-                  onLoad = function() {
-                      if (currentWindowOnload) currentWindowOnload();
-                      jasmineEnv.execute();
-                  };
+            var jasmineEnv = jasmine.getEnv(),
+                htmlReporter = new jasmine.HtmlReporter(),
+                currentWindowOnload = window.onload,
+                specFilter = function(spec) { return htmlReporter.specFilter(spec) },
+                onLoad = function() {
+                    if (currentWindowOnload) currentWindowOnload();
+                    jasmineEnv.execute();
+                };
 
-          jasmineEnv.updateInterval = 1000;
-          jasmineEnv.specFilter = specFilter;
-          jasmineEnv.addReporter(htmlReporter);
+            jasmineEnv.updateInterval = 250;
+            jasmineEnv.specFilter = specFilter;
+            jasmineEnv.addReporter(htmlReporter);
 
-          window.onload = onLoad;
+            window.onload = onLoad;
 
-      })();
+        })();
     </script>
 
 </head>
