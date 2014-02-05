@@ -27,7 +27,35 @@ describe('Global $JS API', function () {
     });
 
     it('creates namespaces [ $JS.namespace ]', function () {
-        //TODO
+
+        $JS.namespace('My.Namespace');
+        expect(My.Namespace).toBeDefined();
+
+        $JS.namespace([
+            'My.Namespace.Test',
+            'My.Namespace.Jasmine',
+            'My.Another.One'
+        ]);
+
+        expect(My.Namespace.Test).toBeDefined();
+        expect(My.Namespace.Jasmine).toBeDefined();
+        expect(My.Another.One).toBeDefined();
+
+        window.MyRoot = {};
+        window.MyOtherRoot = {};
+
+        $JS.namespace(MyRoot, 'SubNamespace');
+        $JS.namespace(MyOtherRoot, [
+            'Namespace.Test',
+            'Namespace.Jasmine',
+            'Another.One'
+        ]);
+
+        expect(MyRoot.SubNamespace).toBeDefined();
+        expect(MyOtherRoot.Namespace.Test).toBeDefined();
+        expect(MyOtherRoot.Namespace.Jasmine).toBeDefined();
+        expect(MyOtherRoot.Another.One).toBeDefined();
+
     });
 
     it('defines a module [ $JS.module ]', function () {
