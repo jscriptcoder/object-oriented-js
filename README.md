@@ -192,9 +192,6 @@ $JS.define('App.SomeClass', {
     method3: function () {...}
 
 });
-
-var myClass = new App.SomeClass();
-myClass.
 ```
 ---
 
