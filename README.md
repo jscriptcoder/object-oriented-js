@@ -178,12 +178,29 @@ App.MoreInterface.$extend('App.LastInterface', [
 ]);
 
 console.log(App.LastInterface); // logs and object with all those empty methods
+
+// These interfaces can be used as mixins:
+$JS.define('App.SomeClass', {
+
+    $implements: App.SomeInterface,
+
+    constructor: function () {},
+
+    // interface methods must be implemented here:
+    method1: function () {...},
+    method2: function () {...},
+    method3: function () {...}
+
+});
+
+var myClass = new App.SomeClass();
+myClass.
 ```
 ---
 
 **$JS.define**
 
-> Defines types, modules, objects and interfaces (basically it does the same as the all the previous ones). Inspired by ExtJS 4 excelent class system.
+> Defines types, modules, objects and interfaces (basically it does the same as all the previous ones). Inspired by ExtJS 4 excelent class system.
 
 _Syntax:_
 ```javascript
