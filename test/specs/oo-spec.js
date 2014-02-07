@@ -129,11 +129,12 @@ describe('Global $JS API', function () {
         expect(My.Object.func2()).toBeTruthy();
 
         $JS.object('My.Other.Object', function () {
-            var tester = 'Jasmine';
 
             return {
-                getTester: function () { return tester; }
+                tester: 'Jasmine',
+                getTester: function () { return this.tester; }
             };
+
         });
 
         expect(My.Other.Object.$super).toEqual(Object.prototype);
@@ -151,7 +152,7 @@ describe('Global $JS API', function () {
         var SubObject = $JS.object('My.Other.SubObject', My.Other.Object, {
 
             helloTester: function () {
-                return 'Hello ' + SubObject.getTester();
+                return 'Hello ' + SubObject.getTester.call(this);
             }
 
         });
@@ -165,8 +166,12 @@ describe('Global $JS API', function () {
 
         var LastObject = My.Other.SubObject.$extend('My.Other.LastObject', {
 
+            init: function (tester) {
+                this.tester = tester;
+            },
+
             goodbyeTester: function () {
-                return 'Goodbye ' + SubObject.getTester();
+                return 'Goodbye ' + SubObject.getTester.call(this);
             }
 
         });
@@ -175,6 +180,12 @@ describe('Global $JS API', function () {
         expect(My.Other.LastObject.$super).toBe(My.Other.SubObject);
         expect(My.Other.LastObject.helloTester()).toEqual('Hello Jasmine');
         expect(My.Other.LastObject.goodbyeTester()).toEqual('Goodbye Jasmine');
+
+        var lastObj = My.Other.LastObject.$new('QUnit');
+
+        expect(lastObj.$super).toBe(My.Other.SubObject);
+        expect(lastObj.helloTester()).toEqual('Hello QUnit');
+        expect(lastObj.goodbyeTester()).toEqual('Goodbye QUnit');
 
     });
 
