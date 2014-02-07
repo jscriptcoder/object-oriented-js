@@ -202,7 +202,7 @@
         var Module = $JS.namespace(root, path, typeof factory === 'function' ? factory() : factory);
 
         if (typeof supermodule === 'object') {
-            EF.extend(Module, supermodule);
+            $JS.extend(Module, supermodule);
             Module.$super = supermodule;
         }
 

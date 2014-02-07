@@ -2,6 +2,8 @@
 This is just another library to define easily namespaces, modules, objects and/or types (or classes if you prefer, although I personally don't like calling them in such way, since Javascript does NOT have classes). This bunch of utilities comes really handy and help you to organize your code in a better way.
 
 ## Global $JS API
+For more details about the API, please have a look at the spec for the unit tests. You'll find more examples in there. Unit tests are sometimes the best documentation ;-)
+
 **$JS.extend**
 
 > Extends objects. Works similar to jQuery.extend, but without the deep copy.
