@@ -1,0 +1,8 @@
+{
+  "name": "object-oriented-js",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.3.2"
+  }
+}
