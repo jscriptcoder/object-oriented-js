@@ -153,7 +153,7 @@ App.MyClass.$extend('App.MySubClass', {...});
 
 **$JS.interface**
 
-> Yes, you read well, "interfaces". This might be useless but helps you to structure your code :-)
+> Yes, you read it well, "interfaces". This might be useless but helps you to structure your code :-)
 
 _Syntax:_
 ```javascript
